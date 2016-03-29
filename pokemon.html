@@ -24,8 +24,23 @@
 			console.log(pocemonValue.species);
 			console.log(pocemonValue.national_id);
 			console.log(pocemonValue.descriptions[0]['resource_uri']);
+
 			var pokemonMove = pocemonValue.moves[0];
 			console.log(pokemonMove.name);
+			console.log(typeof(pocemonValue));
+
+			
+			console.log(pocemonValue.descriptions.length);
+//из записи про покемона нужно взять массив из поля 'moves' и вывести в консоль поле 'name' для каждого элемента массива. 
+		var i = 0;
+		var valueArr = pocemonValue["moves"];
+		
+		console.log(valueArr);
+
+		valueArr.forEach(function(item, i, valueArr){
+			console.log(item["name"]);
+
+			});
 
 	</script>
 </body>
