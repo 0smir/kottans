@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pokemon'sImage</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="pokemon.css">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+
+	<div class="pokemon-image">
+		
+
+	</div>	
+
+
+
+<script>
+$(document).ready(function(){
+
+		pokemonImage = $.ajax({
+			url: 'http://pokeapi.co/api/v1/pokemon/?limit=4',
+			dataType : "json",
+			success: function(data, textStatus){
+				printPokemonImage(data)
+				//console.log(pokemonImage);
+				var arr = data.objects;
+				arr.forEach(function(item, i, arr){
+				//console.log(typeof(item["sprites"]));
+
+
+				 var arrPokeSprite =  item["sprites"];
+				// console.log(arrPokeSprite[0]);
+				
+					printPokemonImage(arrPokeSprite[0]);
+				});
+			}
+		});
+
+		function printPokemonImage(z){
+			console.log(z['resource_uri']);
+			
+		} 
+
+
+
+});
+
+</script>
+</body>
+</html>
