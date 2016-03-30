@@ -12,6 +12,7 @@
 
 	<div class="pokemon-image">
 		<img src="#">
+
 	</div>	
 
 
@@ -32,8 +33,12 @@
 		function printPokemonImage(y){
 			
 			var imageLink = 'http://pokeapi.co' + y["image"];
+			var pokemonName = y["name"];
+			console.log(pokemonName);
 			console.log(imageLink);
 			$(".pokemon-image").find("img").attr("src", imageLink);
+			$(".pokemon-image").append("<h2>" + pokemonName + "</h2>");
+			$(".pokemon-image").css({"border":"1px solid red"});
 		}
 
 
