@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pokemons</title>
+	<link rel="stylesheet" type="text/css" href="pokemon.css">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+
+<div class="pok">
+	
+</div>
+
+<script>
+
+// var jq = document.createElement('script');
+// jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
+// document.getElementsByTagName('head')[0].appendChild(jq);
+// // ... give time for script to load, then type.
+// jQuery.noConflict();
+	
+	$(document).ready(function() {
+   		 console.log( "ready!" );
+
+   		// var fourPokemon = $.ajax({
+   		// 	url: 'http://pokeapi.co/api/v1/pokemon/?limit=4',
+   		// 	dataType: "json"
+   		// });
+   		//console.log(fourPokemon);
+
+		pokemon_ready = $.ajax({
+			url: 'http://pokeapi.co/api/v1/pokemon/?limit=4', 
+			dataType : "json",
+			success: function(data, textStatus){
+				var arr = data.objects;
+				arr.forEach(function(item, i, arr){
+					print_name_species(item);
+				});
+				
+			}
+		});
+		
+
+
+		function print_name_species(x){
+   			console.log(x['name'], x['species']);		
+		}
+
+
+		
+
+
+
+	});
+</script>
+</body>
+</html>
