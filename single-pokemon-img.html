@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pokemon'sImage</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="pokemon.css">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+
+	<div class="pokemon-image">
+		<img src="#">
+	</div>	
+
+
+
+<script>
+	$(document).ready(function(){
+
+		pocemonImage = $.ajax({
+				url: 'http://pokeapi.co/api/v1/sprite/2/', //усочек ссылки общей + ссылка на спрайт  = картинка
+				dataType : "json",
+	 			success: function(data, textStatus){
+
+			printPokemonImage(data);
+		}
+		});
+
+
+		function printPokemonImage(y){
+			
+			var imageLink = 'http://pokeapi.co' + y["image"];
+			console.log(imageLink);
+			$(".pokemon-image").find("img").attr("src", imageLink);
+		}
+
+
+
+
+
+
+	});
+	
+</script>
+</body>
+</html>
