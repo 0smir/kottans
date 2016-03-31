@@ -24,27 +24,47 @@ $(document).ready(function(){
 			url: 'http://pokeapi.co/api/v1/pokemon/?limit=4',
 			dataType : "json",
 			success: function(data, textStatus){
-				printPokemonImage(data)
+				//printPokemonImage(data)
 				//console.log(pokemonImage);
 				var arr = data.objects;
 				arr.forEach(function(item, i, arr){
 				//console.log(typeof(item["sprites"]));//object
+				var arrPokeSprite =  item["sprites"];
+				console.log(arrPokeSprite); //retern for even arrey "sprites" with objects
 
+				// var pokeImageObj = arrPokeSprite[0]//first object(with data (part of link for img)) of arrey sprites
+				// 	console.log(pokeImageObj);
+				// var pokeImgResors = pokeImageObj['resource_uri'];
+				// console.log(pokeImgResors);
+				var chunkPokeImgResors = item["sprites"][0]['resource_uri'];//return part of link to 
+																			//json object with key & property for image of pokemon
+				 console.log(item["sprites"][0]['resource_uri']);
 
-				 var arrPokeSprite =  item["sprites"];
-				// console.log(arrPokeSprite[0]);
+				var pokeImgJSONResorsLink = 'http://pokeapi.co' + chunkPokeImgResors; //full link for pokemon json object with info about image
+					console.log(pokeImgJSONResorsLink);
+
+					//pokeImgJSONResorsLink data processing
+				var linkForPokemonImg = $.ajax({
+						url: pokeImgJSONResorsLink,
+						dataType: "json",
+						success: function(data, textStatus){
+							var linkMainPart = 'http://pokeapi.co';
+							var linkToPokeImage = data['image'];
+							console.log(data['image']);
+							console.log(linkMainPart + linkToPokeImage);
+						}
+				});
 				
-					printPokemonImage(arrPokeSprite[0]);
+
+					printPokemonImage();
+
 				});
 			}
 		});
 
 		function printPokemonImage(z){
-			console.log(z['resource_uri']);
-			console.log(typeof(z));//object
-			var pokeImgResors = z['resource_uri'];
-			var pokeImgResorsLink = 'http://pokeapi.co' + pokeImgResors;
-			console.log(pokeImgResorsLink);//return link for pokemon's data for image
+			
+			
 		} 
 
 
