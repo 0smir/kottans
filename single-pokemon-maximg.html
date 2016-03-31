@@ -28,17 +28,16 @@ $(document).ready(function(){
 				var arr = data.objects;
 				arr.forEach(function(item, i, arr){
 				var arrPokeSprite =  item["sprites"];
-
-				console.log(arrPokeSprite); //retern for even arrey "sprites" with objects
-				
-				var chunkPokeImgResors = item["sprites"][0]['resource_uri'];//return part of link to 
-																			//json object with key & property for image of pokemon
+				//retern for even arrey "sprites" with objects
+				console.log(arrPokeSprite); 
+				//return part of link to json object with key & property for image of pokemon
+				var chunkPokeImgResors = item["sprites"][0]['resource_uri'];
 				 console.log(item["sprites"][0]['resource_uri']);
-
-				var pokeImgJSONResorsLink = 'http://pokeapi.co' + chunkPokeImgResors; //full link for pokemon json object with info about image
+				//full link for pokemon json object with info about image
+				var pokeImgJSONResorsLink = 'http://pokeapi.co' + chunkPokeImgResors; 
 					console.log(pokeImgJSONResorsLink);
 
-					//pokeImgJSONResorsLink data processing
+				//pokeImgJSONResorsLink data processing
 				var linkForPokemonImg = $.ajax({
 						url: pokeImgJSONResorsLink,
 						dataType: "json",
