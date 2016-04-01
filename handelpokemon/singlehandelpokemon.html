@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Single Pokemon</title>
+	<link rel="stylesheet" type="text/css" href="singlehandelpokemon.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script> 
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="singlehandelpokemon.js"></script>
+</head>
+<body>
+	<div class="main-content">
+
+		<div class="all-pokemon page">
+
+			
+				<h2>Pokedex</h2>
+			
+			
+				<ul class="pokemon-list">
+
+					<script id="text-template" type="text/x-handelbars-template">
+						<li>
+							<div class="pokemon-wrapper">
+								<a href="#"><img src="{{}}" alt="{{name}}"></a>
+								<div class="pokemon-info">
+									<h4>{{name}}</h4>
+									<div class="abilities">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+					</script>	
+				</ul>
+			
+		</div><!-- all-pokemon -->
+	</div><!-- main-content -->
+
+
+
+	
+
+</body>
+</html>
