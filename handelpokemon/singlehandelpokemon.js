@@ -1,40 +1,38 @@
 $(document).ready(function(){
 
-	var onePokemonData = $.ajax({
-		url: 'http://pokeapi.co/api/v1/pokemon/1/',
-		dataType: "json",
-		success: function(data, textStatus){
-			var allInfoPokemon = data;
-			console.log(allInfoPokemon)
-			
-			pokemonData(allInfoPokemon);
-		}
-
-	});
-
-
-	function pokemonData(y){
-
-	//console.log(y);
-	var pokemonName = y["name"];
-	//console.log(y["name"]);
-	var pokemonId = y["national_id"];
-	//console.log(y["national_id"]);
-	var pokeImageLinkDataJson = 'http://pokeapi.co' + y["sprites"][0]['resource_uri'];
-	//console.log('http://pokeapi.co' + y["sprites"][0]['resource_uri']);
-
-		var pokeImage = $.ajax({
-			url: pokeImageLinkDataJson,
+	function showPokemon(){
+		$.ajax({
+			url: 'http://pokeapi.co/api/v1/pokemon/1/',
 			dataType: "json",
 			success: function(data, textStatus){
-				var pokeImageLink = 'http://pokeapi.co' + data["image"];
-				console.log(pokeImageLink);
-				return pokeImageLink
+				var pokemon = data;
+				var pokemonId = pokemon["national_id"];
+				var pokemonName = pokemon["name"];
+
+
+				var contextMain = {
+					"name": pokemonName,
+					"id": pokemonId,
+				}
+				
+				pokemonLoad(contextMain);
+				
+				// console.log(contextMain);
 			}
 		});
+	}
+	showPokemon();
 
-		}
 
 
+
+	function pokemonLoad(pokemonData){
+			var templateScript = $("#text-template").html();
+			var template = Handlebars.compile(templateScript);
+			var context = pokemonData;
+			console.log(context);
+			var compiledHtml = template(context);
+		$(".pokemon-list").html(compiledHtml);
+		};
 
 });
