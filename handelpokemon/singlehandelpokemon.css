@@ -1,0 +1,17 @@
+
+li{
+	width: 300px;
+	display: inline-block;
+	padding: 10px;
+	list-style: none;
+	border: 1px solid grey;
+}
+
+a{
+	display: block;
+	margin: 0 auto;
+	border: 1px solid grey;
+}
+img{
+	margin: 0 auto;
+}
