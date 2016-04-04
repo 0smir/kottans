@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
+
 	function loadPokemons(apiUrl){
 
 		$.ajax({
@@ -8,7 +8,7 @@ loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
 			dataType: "json",
 			success: function(data, textStatus){
 				var arrPokemon = data.objects;
-					loadMorePokemon(data);
+					updateOffsetLink(data);
 					pokemonLoadHtml(arrPokemon);
 			}
 
@@ -25,11 +25,11 @@ loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
 	//	console.log(context);
 		var compiledHtml = template(context);
 		$(".pokemon-list").append(compiledHtml);
+
 	};
 
-	//$(".more").on("click", );
 
-	function loadMorePokemon(fullObjectData){
+	function updateOffsetLink(fullObjectData){
 		console.log(fullObjectData);
 		var pokeLinkOffset = 'http://pokeapi.co' + fullObjectData["meta"]["next"];
 		console.log(pokeLinkOffset);
@@ -42,4 +42,6 @@ loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
 		console.log(newPokelink);
 		 loadPokemons(newPokelink);
 	});
+
+	loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
 });
