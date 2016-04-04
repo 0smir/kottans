@@ -8,7 +8,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script> 
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script src="singlehandelpokemon.js"></script>
+	<script src="fourpokemon.js"></script>
 </head>
 <body>
 	<div class="main-content">
@@ -22,21 +22,23 @@
 				<ul class="pokemon-list">
 
 					<script id="text-template" type="text/x-handelbars-template">
-						<li>
-							<div class="pokemon-wrapper">
-								<a href="#"><img src="http://pokeapi.co/media/img/{{id}}.png" alt="{{name}}"></a>
-								<div class="pokemon-info">
-									<h4>{{name}}</h4>
-									<p>Pokemon ID: &#035;{{id}}</p>
-									<div class="abilities">
-										
+						{{#each this}}
+							<li>
+								<div class="pokemon-wrapper">
+									<a href="#"><img src="http://pokeapi.co/media/img/{{national_id}}.png" alt="{{name}}"></a>
+									<div class="pokemon-info">
+										<h4>{{name}}</h4>
+										<p>Pokemon ID: &#035;{{national_id}}</p>
+										<div class="abilities">
+											
+										</div>
 									</div>
 								</div>
-							</div>
-						</li>
+							</li>
+						{{/each}}
 					</script>	
 				</ul>
-			
+			<button class="more" data-offset="#">Load More</button>
 		</div><!-- all-pokemon -->
 	</div><!-- main-content -->
 
