@@ -8,8 +8,8 @@ $(document).ready(function(){
 				var pokemon = data;
 				var pokemonId = pokemon["national_id"];
 				var pokemonName = pokemon["name"];
-
-
+				var pokemonTypeArr = pokemon["types"];
+				
 				var contextMain = {
 					"name": pokemonName,
 					"id": pokemonId,
