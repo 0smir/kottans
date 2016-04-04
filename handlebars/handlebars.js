@@ -3,8 +3,8 @@ $(document).ready(function(){
 	console.log( "ready!" );
 
 	$(function(){
-		var tamplateScript = $("#text-template").html();
-		var template = Handlebars.compile(tamplateScript);
+		var templateScript = $("#text-template").html();
+		var template = Handlebars.compile(templateScript);
 		var context = {
 				'name': 'Jane Doe',
 				'update': 'Just Made my Breakfaast',
