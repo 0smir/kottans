@@ -24,7 +24,7 @@ loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
 
 	//	console.log(context);
 		var compiledHtml = template(context);
-		$(".pokemon-list").html(compiledHtml);
+		$(".pokemon-list").append(compiledHtml);
 	};
 
 	//$(".more").on("click", );
