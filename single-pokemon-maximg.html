@@ -25,44 +25,59 @@ $(document).ready(function(){
 			dataType : "json",
 			success: function(data, textStatus){
 				
-				var arr = data.objects;
-				arr.forEach(function(item, i, arr){
-				var arrPokeSprite =  item["sprites"];
-				//retern for even arrey "sprites" with objects
-				console.log(arrPokeSprite); 
-				//return part of link to json object with key & property for image of pokemon
-				var chunkPokeImgResors = item["sprites"][0]['resource_uri'];
-				 console.log(item["sprites"][0]['resource_uri']);
-				//full link for pokemon json object with info about image
-				var pokeImgJSONResorsLink = 'http://pokeapi.co' + chunkPokeImgResors; 
+				var arr = data;
+						console.log(arr);
+
+						printPokemonImage(arr);
+				}
+			});
+		
+			
+
+		function printPokemonImage(z){
+				var allPokemonDataArreys = z["objects"];
+				console.log(allPokemonDataArreys);
+				console.log(allPokemonDataArreys.length);
+
+
+				allPokemonDataArreys.forEach(function(item, i, allPokemonDataArreys){
+					//find for even pokemon arrey "sprites" with objects (that include info about img)
+					var arrPokeSprite = item["sprites"];
+					//return part of link to json object with key & property for image of pokemon  (item["sprites"][0]['resource_uri'])
+					var chunkPokeImgResors = arrPokeSprite[0]['resource_uri'];
+
+					var pokeImgJSONResorsLink = 'http://pokeapi.co' + chunkPokeImgResors; 
+
+					console.log(arrPokeSprite); 
+					console.log(chunkPokeImgResors);
 					console.log(pokeImgJSONResorsLink);
 
-				//pokeImgJSONResorsLink data processing
-				var linkForPokemonImg = $.ajax({
+
+					//pokeImgJSONResorsLink data processing
+
+					var linkForPokemonImg = $.ajax({
 						url: pokeImgJSONResorsLink,
 						dataType: "json",
 						success: function(data, textStatus){
 							var linkMainPart = 'http://pokeapi.co';
 							var linkToPokeImage = data['image'];
-							console.log(data['image']);
 							console.log(linkMainPart + linkToPokeImage);
-						}
+							}
+					});
+
+					$(".pokemon-image").append('<img' + " " + 'src = "#"' + '>');
+
+					for (i = 0; i <= allPokemonDataArreys.length; i++ ){
+					//	$("img").attr('src', linkToPokeImage);
+					}
+
+					//to do script that show image of pokemon
+					
+					
+
+
 				});
-				
-
-					printPokemonImage();
-
-				});
-			}
-		});
-
-		function printPokemonImage(z){
-			
-			
 		} 
-
-
-
 });
 
 </script>
