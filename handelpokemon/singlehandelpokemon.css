@@ -1,10 +1,30 @@
+*{
+	box-sizing: border-box;
+}
+.pokemon-list{
+	width: 550px;
+	padding-top: 20px;
+	border: 1px solid red;
+	display: inline-flex;
+	flex-wrap: wrap;
+}
+.all-pokemon{
+	display: flex;
+	flex-direction: column;
+}
 
 li{
-	width: 300px;
-	display: inline-block;
+	width: 150px;
+	min-height: 300px;
+	
 	padding: 10px;
 	list-style: none;
 	border: 1px solid grey;
+	margin: 0 15px 15px 0;
+}
+
+ul li:nth-child(1){
+	background-color: red;
 }
 
 a{
@@ -14,4 +34,16 @@ a{
 }
 img{
 	margin: 0 auto;
+}
+
+.more{
+	height: 50px;
+	width: 150px;
+	box-sizing: border-box;
+	padding: 10px;
+	color: #ffffff;
+	background-color: #0fc0fc;
+	border-radius: 10px;
+	border: 1px solid grey;
+
 }
