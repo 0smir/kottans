@@ -64,17 +64,17 @@ $(document).ready(function(){
 
 
 
-	//(function(){
+	
 	var selectedLi;
 
 
-		"ul".onclick = function(event){
+		$("ul").on("click", function(event){
 			//find where was click
 			var target = event.target; 
 			//return only if tag = li
 			if (target.tagName != 'LI') return;
 			highlight(target);
-		}
+		});
 
 
 		function highlight(y){
@@ -84,10 +84,10 @@ $(document).ready(function(){
 			// y - field that was selected
 			selectedLi = y;
 			selectedLi.classList.add("target-field");
-
 		}
+		//work only if event of click was on tag li
 
-	//})()
+	
 	
 
 	loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
