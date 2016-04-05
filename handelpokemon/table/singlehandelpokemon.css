@@ -1,0 +1,90 @@
+*{
+	box-sizing: border-box;
+}
+.pokemon-list{
+	width: 550px;
+	padding-top: 20px;
+	border: 1px solid red;
+	display: inline-flex;
+	flex-wrap: wrap;
+}
+.page{
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper{
+	display: flex;
+	justify-content: space-around;
+	position: relative;
+}
+
+.all-pokemon{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+li{
+	width: 150px;
+	min-height: 300px;
+	padding: 10px;
+	list-style: none;
+	border: 1px solid grey;
+	margin: 0 15px 15px 0;
+}
+
+.pokemon-list li:first-of-type{
+	background-color: blue;
+}
+
+a{
+	display: block;
+	margin: 0 auto;
+	border: 1px solid grey;
+}
+img{
+	margin: 0 auto;
+}
+
+.more{
+	height: 50px;
+	width: 150px;
+	box-sizing: border-box;
+	padding: 10px;
+	color: #ffffff;
+	background-color: #0fc0fc;
+	border-radius: 10px;
+	border: 1px solid grey;
+}
+
+
+.single-pokemon{
+	min-width: 200px;
+	max-width: 300px;
+	min-height: 200px;
+	max-height: 500px;
+	padding: 10px;
+	border: 1px solid grey;
+	position: fixed;
+	top: 150px;
+	left: 950px;
+	display: none;
+
+}
+
+table{
+	border: 1px solid grey;
+	border-collapse: collapse;
+}
+
+td{
+	border: 1px solid grey;
+}
+
+div{
+	border: 1px dashed red;
+}
+
+.target-field{
+	background-color: blue;	
+}
