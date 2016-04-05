@@ -41,13 +41,13 @@
 				</div> <!-- all-pokemon-list -->
 				<div class="single-pokemon">
 					<script id="text-template-single-pokemon" type="text/x-handelbars-template">
-						<a href="#"><img src="http://pokeapi.co/media/img/{{national_id}}.png" alt="{{name}}"></a>
+						<a href="#"><img src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}"></a>
 						<div class="pokemon-info">
-							<h4>{{name}}&#160;<span> &#035;{{national_id}}</span></h4>
+							<h4>{{name}}&#160;<span> &#035;{{pkdx_id}}</span></h4>
 							<table>
 								<tr>
 									<td>Type</td>
-									<td>{{}}</td>
+									<td>{{pkdx_id}}</td>
 								</tr>
 								<tr>
 									<td>Attack</td>
@@ -75,9 +75,10 @@
 								</tr>
 								<tr>
 									<td>Total Moves</td>
-									<td>{{}}</td>
+									<td>{{pkdx_id}}</td>
 									
 								</tr>
+								<!-- to do.... find all properties of pokemon -->
 							</table>
 						</div>
 					</script>
