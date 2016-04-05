@@ -78,15 +78,19 @@ $(document).ready(function(){
 				targetElem = targetElem.parent();
 			}	
 		}
+		
 	});
 
 
 	function selectedPokemon(targetField){
 		var selectedLi = targetField;
-		
 		// targetField - tag that was target
 			selectedLi.addClass("selected");
-		
+			$(".single-pokemon").css({"display":"block"});
+			var singlPokemonId = $("ul").find(".selected").attr('data-pokedex-id');
+			var apiUrl = 'http://pokeapi.co/api/v1/pokemon/' + singlPokemonId + '/';
+			loadOnePokemon(apiUrl);
+			console.log(apiUrl);
 	}
 		
 
