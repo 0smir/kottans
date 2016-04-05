@@ -64,38 +64,32 @@ $(document).ready(function(){
 
 
 
-	
-	var selectedLi;
-
-
-		$("ul").on("click", function(event){
-			//find where was click
-			var target = event.target; 
-			//var li = $('li');
-			//return only if tag = li
-			while (target.tagName != "LI"){
-				if (target.tagName == "LI"){
-					console.log(target);
-					selectedPokemon(target);
-					return;
-				}
-				target = target.parentNode;
-			}
-			
-		});
-
-
-		function selectedPokemon(targetField){
-			if (selectedLi){
-				selectedLi.classList.remove("selected");
-			}
-			// y - field that was selected
-			selectedLi = targetField;
-			selectedLi.classList.add("selected");
+	$("ul").click(function(event){
+		$(this).find(".selected").removeClass("selected");
+		//find tag that was clicked
+		var targetElem = $(event.target); 
+		//return only if tag = li
+		while(targetElem != $("ul")){
+			if( targetElem.is("li") ){
+				selectedPokemon(targetElem);
+				return;
+			}else{
+				console.log(targetElem);
+				targetElem = targetElem.parent();
+			}	
 		}
-		//work only if event of click was on tag li
+	});
 
-	
+
+	function selectedPokemon(targetField){
+		var selectedLi = targetField;
+		
+		// targetField - tag that was target
+			selectedLi.addClass("selected");
+		
+	}
+		
+
 	
 
 	loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
