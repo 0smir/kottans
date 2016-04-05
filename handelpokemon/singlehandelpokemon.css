@@ -8,15 +8,25 @@
 	display: inline-flex;
 	flex-wrap: wrap;
 }
-.all-pokemon{
+.page{
 	display: flex;
 	flex-direction: column;
 }
 
+.all-pokemon{
+	display: flex;
+	justify-content: space-around;
+	position: relative;
+}
+
+.all-pokemon-list{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
 li{
 	width: 150px;
 	min-height: 300px;
-	
 	padding: 10px;
 	list-style: none;
 	border: 1px solid grey;
@@ -45,5 +55,28 @@ img{
 	background-color: #0fc0fc;
 	border-radius: 10px;
 	border: 1px solid grey;
+}
 
+
+.single-pokemon{
+	min-width: 200px;
+	max-width: 300px;
+	min-height: 200px;
+	max-height: 500px;
+	padding: 10px;
+	border: 1px solid grey;
+	position: fixed;
+	top: 150px;
+	left: 950px;
+	display: none;
+
+}
+
+table{
+	border: 1px solid grey;
+	border-collapse: collapse;
+}
+
+td{
+	border: 1px solid grey;
 }
