@@ -71,19 +71,27 @@ $(document).ready(function(){
 		$("ul").on("click", function(event){
 			//find where was click
 			var target = event.target; 
+			//var li = $('li');
 			//return only if tag = li
-			if (target.tagName != 'LI') return;
-			highlight(target);
+			while (target.tagName != "LI"){
+				if (target.tagName == "LI"){
+					console.log(target);
+					selectedPokemon(target);
+					return;
+				}
+				target = target.parentNode;
+			}
+			
 		});
 
 
-		function highlight(y){
+		function selectedPokemon(targetField){
 			if (selectedLi){
-				selectedLi.classList.remove("target-field");
+				selectedLi.classList.remove("selected");
 			}
 			// y - field that was selected
-			selectedLi = y;
-			selectedLi.classList.add("target-field");
+			selectedLi = targetField;
+			selectedLi.classList.add("selected");
 		}
 		//work only if event of click was on tag li
 

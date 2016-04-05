@@ -33,9 +33,9 @@ li{
 	margin: 0 15px 15px 0;
 }
 
-.pokemon-list li:first-of-type{
+/*.pokemon-list li:first-of-type{
 	background-color: blue;
-}
+}*/
 
 a{
 	display: block;
@@ -85,6 +85,6 @@ div{
 	border: 1px dashed red;
 }
 
-.target-field{
+.selected{
 	background-color: blue;	
 }
