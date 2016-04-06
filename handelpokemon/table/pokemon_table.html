@@ -39,10 +39,11 @@
 						</ul>
 					<button class="more" data-offset="#">Load More</button>
 				</div> <!-- all-pokemon-list -->
-				<div class="single-pokemon">
+				<ul class="single-pokemon">
 					<script id="text-template-single-pokemon" type="text/x-handelbars-template">
-						<a href="#"><img src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}"></a>
-						<div class="pokemon-info">
+						<li >
+							<a href="#"><img src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}"></a>
+							
 							<h4>{{name}}&#160;<span> &#035;{{pkdx_id}}</span></h4>
 							<table>
 								<tr>
@@ -76,13 +77,12 @@
 								<tr>
 									<td>Total Moves</td>
 									<td>{{pkdx_id}}</td>
-									
 								</tr>
 								<!-- to do.... find all properties of pokemon -->
 							</table>
-						</div>
+						</li>
 					</script>
-				</div> <!-- single-pokemon -->
+				</ul> <!-- single-pokemon -->
 			</div>	<!-- wrapper -->
 		</div><!-- all-pokemon -->
 	</div><!-- main-content -->
