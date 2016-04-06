@@ -66,9 +66,10 @@ img{
 	padding: 10px;
 	border: 1px solid grey;
 	position: fixed;
-	top: 150px;
+	top: 60px;
 	left: 950px;
 	display: none;
+	overflow: hidden;
 
 }
 
