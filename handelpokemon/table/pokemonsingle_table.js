@@ -34,18 +34,22 @@ $(document).ready(function(){
 	//	console.log(context);
 		var compiledHtml = template(context);
 		$(".pokemon-list").append(compiledHtml);
-
 	};
 
 
+
 	function singlePokemonlInfo(x){
+		$(".pokemon_detailed_info").remove();
 		var templateScript = $("#text-template-single-pokemon").html();
 		var template = Handlebars.compile($("#text-template-single-pokemon").html());
 		var context = x;
 		var compiledHtml = template(context);
-		$(".single-pokemon").html(compiledHtml);
-
+		$(".single-pokemon").append(compiledHtml);
+		$(".single-pokemon").find('li').addClass('pokemon_detailed_info');
 	}
+
+
+	
 
 
 	function updateOffsetLink(fullObjectData){
@@ -85,12 +89,12 @@ $(document).ready(function(){
 	function selectedPokemon(targetField){
 		var selectedLi = targetField;
 		// targetField - tag that was target
-			selectedLi.addClass("selected");
-			$(".single-pokemon").css({"display":"block"});
-			var singlPokemonId = $("ul").find(".selected").attr('data-pokedex-id');
-			var apiUrl = 'http://pokeapi.co/api/v1/pokemon/' + singlPokemonId + '/';
-			loadOnePokemon(apiUrl);
-			console.log(apiUrl);
+		selectedLi.addClass("selected");
+		$(".single-pokemon").css({"display":"block"});
+		var singlPokemonId = $("ul").find(".selected").attr('data-pokedex-id');
+		var apiUrl = 'http://pokeapi.co/api/v1/pokemon/' + singlPokemonId + '/';
+		loadOnePokemon(apiUrl);
+		console.log(apiUrl);
 	}
 		
 
