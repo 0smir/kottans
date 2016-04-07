@@ -55,14 +55,14 @@ $(document).ready(function(){
 	function updateOffsetLink(fullObjectData){
 		console.log(fullObjectData);
 		var pokeLinkOffset = 'http://pokeapi.co' + fullObjectData["meta"]["next"];
-		console.log(pokeLinkOffset);
+		//console.log(pokeLinkOffset);
 		$(".more").attr('data-offset', pokeLinkOffset);
 	}
 	
 
 	$(".more").on("click", function(){
 		var newPokelink = $(".more").attr('data-offset');
-		console.log(newPokelink);
+		//console.log(newPokelink);
 		loadPokemons(newPokelink);
 	});
 
@@ -96,9 +96,12 @@ $(document).ready(function(){
 		loadOnePokemon(apiUrl);
 		console.log(apiUrl);
 	}
-		
 
-	
+
+
+
+
 
 	loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
+	
 });
