@@ -1,0 +1,43 @@
+*{
+	box-sizing: border-box;
+}
+
+span{
+	border: 1px solid grey;
+	padding: 10px 130px;
+}
+
+.pokemon-list li{
+	width: 30%;
+	list-style: none;	
+	display: inline-block;
+	border: 1px solid grey;
+	margin-bottom: 10px; 
+	padding: 10px 0;
+}
+
+
+.pokemon-list{
+	padding: 0;
+	border: 1px solid red;	
+	
+}
+
+.pokemon-list a{
+	display: block;
+	height: 120px;
+	width: 120px;
+	border: 1px solid grey;
+	margin: 0 auto;
+}
+.more{
+	height: 50px;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	color: #ffffff;
+	background-color: #0fc0fc;
+	border-radius: 10px;
+	border: 1px solid grey;
+}
+
