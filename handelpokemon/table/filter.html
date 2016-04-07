@@ -16,21 +16,25 @@
 		<div class="page">
 			<h2>Pokedex</h2>
 			<div class="wrapper"> 
+				
 				<div class="all-pokemon">
-						<ul class="pokemon-list">
-							<script id="text-template" type="text/x-handelbars-template">
-								{{#each this}}
-									<li data-pokedex-id="{{pkdx_id}}">
-										<img src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}">
-										<h4>{{name}}</h4>
-										<p>Pokemon ID: &#035;{{pkdx_id}}</p>
-										{{#each types}}
-											<button class="{{name}}">{{name}}</button>
-										{{/each}}
-									</li>
-								{{/each}}
-							</script>	
-						</ul>
+					<div class="filter-control">
+						<button class="reset">Reset filter</button>
+					</div>
+					<ul class="pokemon-list">
+						<script id="text-template" type="text/x-handelbars-template">
+							{{#each this}}
+								<li data-pokedex-id="{{pkdx_id}}">
+									<img src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}">
+									<h4>{{name}}</h4>
+									<p>Pokemon ID: &#035;{{pkdx_id}}</p>
+									{{#each types}}
+										<button class="{{name}}">{{name}}</button>
+									{{/each}}
+								</li>
+							{{/each}}
+						</script>	
+					</ul>
 					<button class="more" data-offset="#">Load More</button>
 				</div> <!-- all-pokemon-list -->
 				<ul class="single-pokemon">
