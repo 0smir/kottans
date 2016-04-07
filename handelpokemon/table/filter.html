@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Single Pokemon</title>
+	<link rel="stylesheet" type="text/css" href="singlehandelpokemon.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script> 
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="filter.js"></script>
+</head>
+<body>
+	<div class="main-content">
+
+		<div class="page">
+			<h2>Pokedex</h2>
+			<div class="wrapper"> 
+				<div class="all-pokemon">
+						<ul class="pokemon-list">
+							<script id="text-template" type="text/x-handelbars-template">
+								{{#each this}}
+									<li data-pokedex-id="{{pkdx_id}}">
+										<img src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}">
+										<h4>{{name}}</h4>
+										<p>Pokemon ID: &#035;{{pkdx_id}}</p>
+										{{#each types}}
+											<button class="{{name}}">{{name}}</button>
+										{{/each}}
+									</li>
+								{{/each}}
+							</script>	
+						</ul>
+					<button class="more" data-offset="#">Load More</button>
+				</div> <!-- all-pokemon-list -->
+				<ul class="single-pokemon">
+					<script id="text-template-single-pokemon" type="text/x-handelbars-template">
+						<li>
+							<img src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}">
+							
+							<h4>{{name}}&#160;<span> &#035;{{pkdx_id}}</span></h4>
+							<table>
+								<tr>
+									<td>Type</td>
+									<td>
+									{{#each types}}	
+									{{name}}<br>
+									{{/each}}
+									</td>
+								</tr>
+								<tr>
+									<td>Attack</td>
+									<td>{{attack}}</td>
+								</tr>
+								<tr>
+									<td>Defense</td>
+									<td>{{defense}}</td>
+								</tr>
+								<tr>
+									<td>HP</td>
+									<td>{{hp}}</td>
+								</tr>
+								<tr>
+									<td>SP Attack</td>
+									<td>{{sp_atk}}</td>
+								</tr>
+								<tr>
+									<td>Speed</td>
+									<td>{{speed}}</td>
+								</tr>
+								<tr>
+									<td>Weight</td>
+									<td>{{weight}}</td>
+								</tr>
+								<tr>
+									<td>Total Moves</td>
+									<td>{{moves.length}}</td>
+								</tr>
+							</table>
+						</li>
+					</script>
+				</ul> <!-- single-pokemon -->
+			</div>	<!-- wrapper -->
+		</div><!-- all-pokemon -->
+	</div><!-- main-content -->
+
+
+</body>
+</html>
