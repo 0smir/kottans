@@ -28,6 +28,10 @@
 												<h4>{{name}}</h4>
 												<p>Pokemon ID: &#035;{{pkdx_id}}</p>
 												<div class="abilities">
+													{{#each types}}
+														<button class="{{name}}">{{name}}</button>
+														
+													{{/each}}
 													
 												</div>
 											</div>
@@ -48,7 +52,11 @@
 							<table>
 								<tr>
 									<td>Type</td>
-									<td>{{types}}</td>
+									<td>
+									{{#each types}}	
+									{{name}}<br>
+									{{/each}}
+									</td>
 								</tr>
 								<tr>
 									<td>Attack</td>
@@ -78,7 +86,6 @@
 									<td>Total Moves</td>
 									<td>{{moves.length}}</td>
 								</tr>
-								<!-- to do.... find all properties of pokemon -->
 							</table>
 						</li>
 					</script>
