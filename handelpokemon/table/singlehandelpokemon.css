@@ -44,6 +44,9 @@ a{
 }
 img{
 	margin: 0 auto;
+	display: block;
+	background-color: #ffffff;
+	border: 1px solid grey;
 }
 
 .more{
@@ -98,7 +101,11 @@ td{
 }*/
 
 .selected{
-	background-color: blue;	
+	background-color: #f0ffff;	
+}
+
+.hide{
+	display: none;
 }
 
 /*-----------type button------------------*/
