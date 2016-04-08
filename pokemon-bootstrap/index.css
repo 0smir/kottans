@@ -1,35 +1,107 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	/*margin: 0;*/
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*------------------end reset css----------------------*/
+
+
+body{
+	font-family: sans-serif;
+	font-weight: normal;
+}
+
 *{
 	box-sizing: border-box;
 }
 
-span{
+.row {
+	border: 1px solid mediumvioletred;
+}
+
+h2 > span{
 	border: 1px solid grey;
-	padding: 10px 130px;
+}
+
+h2{
+	margin-bottom: 15px;
 }
 
 .pokemon-list li{
-	width: 30%;
 	list-style: none;	
 	display: inline-block;
 	border: 1px solid grey;
 	margin-bottom: 10px; 
-	padding: 10px 0;
+	padding: 10px;
 }
 
+
+.pokemon-list,
+.single-pokemon{
+	border: 1px solid red;
+	padding: 15px 0 0;	
+}
+
+.single-pokemon{
+	position: fixed;
+}
 
 .pokemon-list{
-	padding: 0;
-	border: 1px solid red;	
-	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
-.pokemon-list a{
-	display: block;
-	height: 120px;
-	width: 120px;
-	border: 1px solid grey;
+img{
 	margin: 0 auto;
+	display: block;
+	background-color: #ffffff;
+	border: 1px solid grey;
 }
+
 .more{
 	height: 50px;
 	width: 100%;
@@ -41,3 +113,148 @@ span{
 	border: 1px solid grey;
 }
 
+.selected{
+	background-color: #f0ffff;	
+}
+
+.filter-control{
+	display: none;
+}
+
+.hide{
+	display: none;
+}
+
+.visible{
+	display: block;
+}
+
+.reset{
+	height: 50px;
+	width: 150px;
+	font-size: 1.2rem;
+	background-color: #ffa343;
+	border: 1px solid #ff6700;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 15px;
+}
+
+/*-----------type button------------------*/
+.pokemon-list button{
+	font-size: 12px;
+	padding: 3px 10px;
+	color: #2a2a2a;
+	border-radius: 2px;
+	margin-bottom: 5px;
+}
+
+.normal{
+	background-color: #c8c8ad;
+	border: 1px solid #575744;
+}
+
+.fire{
+	background-color: #f08030;
+	border: 1px solid #b4530d;
+}
+
+.water{
+	background-color: #6890f0;
+	border: 1px solid #1753e3;
+}
+
+.electric{
+	background-color: #f8d030;
+	border: 1px solid #c19b07;
+}
+
+.grass{
+	background-color: #78c850;
+	border: 1px solid #4a892b;
+}
+
+.ice{
+	background-color: #98d8d8;
+	border: 1px solid #45b6b6;
+}
+
+.fighting{
+	background-color: #c03028;
+	border: 1px solid #82211b;
+}
+
+.poison{
+	background-color: #a040a0;
+	border: 1px solid #662966;
+}
+
+.ground{
+	background-color: #e0c068;
+	border: 1px solid #aa8623;
+}
+
+.flying{
+	background-color: #a890f0;
+	border: 1px solid #7762b6;
+}
+
+.psychic{
+	background-color: #f85888;
+	border: 1px solid #d60945;
+}
+
+.bug{
+	background-color: #a8b820;
+	border: 1px solid #616b13;
+}
+
+.rock{
+	background-color: #b8a038;
+	border: 1px solid #746523;
+}
+
+.ghost{
+	background-color: #705898;
+	border: 1px solid #413359;
+}
+
+.dragon{
+	background-color: #7038f8;
+	border: 1px solid #3d07c0;
+}
+
+.dark{
+	background-color: #705848;
+	border: 1px solid #362a23;
+}
+
+.steel{
+	background-color: #b8b8d0;
+	border: 1px solid #7a7aa7;
+}
+
+.fairy{
+	background-color: #e898e8;
+	border: 1px solid #d547d5;
+}
+
+
+@media all and (min-width: 320px) and (max-width: 480px){
+	.pokemon-list li{
+		width: 100%;
+	}
+
+	h2 > span{
+		border: 1px solid grey;
+		padding: 10px 100px;
+	}
+
+	.single-pokemon{
+		
+		position: fixed;
+		right: 0;
+		top: 55px;
+	}
+
+}
