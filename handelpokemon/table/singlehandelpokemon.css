@@ -104,9 +104,19 @@ td{
 	background-color: #f0ffff;	
 }
 
+.filter-control{
+	display: none;
+}
+
 .hide{
 	display: none;
 }
+
+.visible{
+	display: block;
+}
+
+
 
 /*-----------type button------------------*/
 .abilities button{
