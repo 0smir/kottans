@@ -9,7 +9,7 @@ $(document).ready(function(){
 			success: function(data, textStatus) {
 				var arrPokemon = data.objects;
 				updateOffsetLink(data);
-				pokemonGenerateHtml(arrPokemon);
+				generatePokemonHtml(arrPokemon);
 			}
 
 		});
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		});
 	}
 
-	function pokemonGenerateHtml(pokemonDataObj) {
+	function generatePokemonHtml(pokemonDataObj) {
 		var templateScript = $("#text-template").html(),
 		template = Handlebars.compile(templateScript),
 		compiledHtml = template(pokemonDataObj);
@@ -50,13 +50,13 @@ $(document).ready(function(){
 	//show single data pokemon
 	function showSelectedPokemon(targetField) {
 		var selectedLi = targetField;
+
 		// targetField - tag that was target
 		selectedLi.addClass("selected");
-		$(".single-pokemon").css({"display":"block"});
-		var singlPokemonId = $("ul").find(".selected").attr('data-pokedex-id');
+		$(".single-pokemon").show();
+		var singlPokemonId = $(".pokemon-list").find(".selected").attr('data-pokedex-id');
 		var apiUrl = 'http://pokeapi.co/api/v1/pokemon/' + singlPokemonId + '/';
 		loadOnePokemon(apiUrl);
-		console.log(apiUrl);
 	}
 
 	function filter(buttonClass) {
@@ -70,7 +70,7 @@ $(document).ready(function(){
 		loadPokemons(newPokelink);
 	});
 
-	$("ul").click(function(event) {
+	$(".pokemon-list").on("click", function(event) {
 		$(this).find(".selected").removeClass("selected");
 		var targetElem = $(event.target);
 		if (targetElem.is("img")) {
@@ -89,7 +89,6 @@ $(document).ready(function(){
 					showSelectedPokemon(targetElem);
 					return;
 				} else {
-					console.log(targetElem);
 					targetElem = targetElem.parent();
 				}
 			}
@@ -100,7 +99,6 @@ $(document).ready(function(){
 			var  buttonClass = targetElem.attr("class");
 			filter(buttonClass);
 		}
-
 	});
 
 	$(".filter-control").on("click", ".reset", function(){
