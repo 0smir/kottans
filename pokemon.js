@@ -26,29 +26,24 @@ $(document).ready(function(){
 	}
 
 	function pokemonGenerateHtml(pokemonDataObj) {
-		var templateScript = $("#text-template").html();
-		var template = Handlebars.compile(templateScript);
-		var context = pokemonDataObj;
+		var templateScript = $("#text-template").html(),
+		template = Handlebars.compile(templateScript),
+		compiledHtml = template(pokemonDataObj);
 
-		//	console.log(context);
-		var compiledHtml = template(context);
 		$(".pokemon-list").append(compiledHtml);
 	};
 
 	function generateSinglePokemonlInfo(data) {
 		$(".pokemon_detailed_info").remove();
-		var templateScript = $("#text-template-single-pokemon").html();
-		var template = Handlebars.compile(templateScript);
-		var context = data;
-		var compiledHtml = template(context);
+		var templateScript = $("#text-template-single-pokemon").html(),
+		template = Handlebars.compile(templateScript),
+		compiledHtml = template(data);
 		$(".single-pokemon").append(compiledHtml);
 		$(".single-pokemon").find('li').addClass('pokemon_detailed_info');
 	}
 
 	function updateOffsetLink(fullObjectData) {
-		//console.log(fullObjectData);
 		var pokeLinkOffset = 'http://pokeapi.co' + fullObjectData["meta"]["next"];
-		//console.log(pokeLinkOffset);
 		$(".more").attr('data-offset', pokeLinkOffset);
 	}
 
@@ -66,14 +61,12 @@ $(document).ready(function(){
 
 	function filter(buttonClass) {
 		var buttonClass = "." + buttonClass;
-		// console.log(buttonClass);
 		var chosenPokemon = $(buttonClass).parent();
 		chosenPokemon.removeClass("hide");
 	}
 
 	$(".more").on("click", function() {
 		var newPokelink = $(".more").attr('data-offset');
-		//console.log(newPokelink);
 		loadPokemons(newPokelink);
 	});
 
@@ -86,7 +79,6 @@ $(document).ready(function(){
 					showSelectedPokemon(targetElem);
 					return;
 				} else {
-					// console.log(targetElem);
 					targetElem = targetElem.parent();
 				}
 			}
@@ -104,17 +96,16 @@ $(document).ready(function(){
 
 		} else if (targetElem.is("button")) {
 			$(".pokemon-list").find("li").addClass("hide");
-			$(".filter-control").css({"display":"block"});
+			$(".filter-control").show();
 			var  buttonClass = targetElem.attr("class");
-			// console.log(buttonClass);
 			filter(buttonClass);
 		}
 
 	});
 
-	$(".filter-control").find(".reset").on("click", function() {
+	$(".filter-control").on("click", ".reset", function(){
 		$(".pokemon-list").find("li").removeClass("hide");
-		$(".filter-control").css({"display":"none"});
+		$(".filter-control").hide();
 	});
 
 	loadPokemons('http://pokeapi.co/api/v1/pokemon/?limit=12');
