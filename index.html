@@ -20,85 +20,81 @@
 <body>
 <div class="main-content">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="page">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h2 class="text-center"><span>Pokedex</span></h2>
-						</div>
-					
-						<div class="col-xs-6 col-sm-7 col-md-7 col-lg-8">
-							<div class="filter-control">
-								<button class="reset">Reset filter</button>
-							</div>
-							<ul class="pokemon-list">
-								<script id="text-template" type="text/x-handelbars-template">
-									{{#each this}}
-										<li data-pokedex-id="{{pkdx_id}}">
-											<img  src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}" class="img-responsive">
-											<h4 class="text-center">{{name}}</h4>
-											
-											{{#each types}}
-												<button class="{{name}}">{{name}}</button>
-											{{/each}}
-										</li>
-									{{/each}}
-								</script>	
-							</ul>
-							<button class="more" data-offset="#">Load More</button>
-						</div>
-						<div class="col-xs-6 col-sm-5 col-md-5 col-lg-4">
-							<ul class="single-pokemon">
-								<script id="text-template-single-pokemon" type="text/x-handelbars-template">
-									<li>
-										<img class="center-block" src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}">
-
-										<h4 class="text-center">{{name}}&#160;<span> &#035;{{pkdx_id}}</span></h4>
-										<table class="table table-bordered table-hover">
-											<tr>
-												<td>Type</td>
-												<td>
-													{{#each types}}
-													{{name}}<br>
-													{{/each}}
-												</td>
-											</tr>
-											<tr>
-												<td>Attack</td>
-												<td>{{attack}}</td>
-											</tr>
-											<tr>
-												<td>Defense</td>
-												<td>{{defense}}</td>
-											</tr>
-											<tr>
-												<td>HP</td>
-												<td>{{hp}}</td>
-											</tr>
-											<tr>
-												<td>SP Attack</td>
-												<td>{{sp_atk}}</td>
-											</tr>
-											<tr>
-												<td>Speed</td>
-												<td>{{speed}}</td>
-											</tr>
-											<tr>
-												<td>Weight</td>
-												<td>{{weight}}</td>
-											</tr>
-											<tr>
-												<td>Total Moves</td>
-												<td>{{moves.length}}</td>
-											</tr>
-										</table>
-									</li>
-								</script>
-							</ul> <!-- single-pokemon -->
-							
-						</div>
+		<div class="page">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h2 class="text-center"><span>Pokedex</span></h2>
+				</div>
+			
+				<div class="col-xs-6 col-sm-7 col-md-7 col-lg-8">
+					<div class="filter-control">
+						<button class="reset">Reset filter</button>
 					</div>
+					<ul class="pokemon-list">
+						<script id="text-template" type="text/x-handelbars-template">
+							{{#each this}}
+								<li data-pokedex-id="{{pkdx_id}}">
+									<img  src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}" class="img-responsive">
+									<h4 class="text-center">{{name}}</h4>
+									
+									{{#each types}}
+										<button class="{{name}}">{{name}}</button>
+									{{/each}}
+								</li>
+							{{/each}}
+						</script>	
+					</ul>
+					<button class="more" data-offset="#">Load More</button>
+				</div>
+				<div class="col-xs-6 col-sm-5 col-md-5 col-lg-4">
+					<ul class="single-pokemon">
+						<script id="text-template-single-pokemon" type="text/x-handelbars-template">
+							<li>
+								<img class="center-block" src="http://pokeapi.co/media/img/{{pkdx_id}}.png" alt="{{name}}">
+
+								<h4 class="text-center">{{name}}&#160;<span> &#035;{{pkdx_id}}</span></h4>
+								<table class="table table-bordered table-hover">
+									<tr>
+										<td>Type</td>
+										<td>
+											{{#each types}}
+											{{name}}<br>
+											{{/each}}
+										</td>
+									</tr>
+									<tr>
+										<td>Attack</td>
+										<td>{{attack}}</td>
+									</tr>
+									<tr>
+										<td>Defense</td>
+										<td>{{defense}}</td>
+									</tr>
+									<tr>
+										<td>HP</td>
+										<td>{{hp}}</td>
+									</tr>
+									<tr>
+										<td>SP Attack</td>
+										<td>{{sp_atk}}</td>
+									</tr>
+									<tr>
+										<td>Speed</td>
+										<td>{{speed}}</td>
+									</tr>
+									<tr>
+										<td>Weight</td>
+										<td>{{weight}}</td>
+									</tr>
+									<tr>
+										<td>Total Moves</td>
+										<td>{{moves.length}}</td>
+									</tr>
+								</table>
+							</li>
+						</script>
+					</ul> <!-- single-pokemon -->
+					
 				</div>
 			</div>
 		</div>
